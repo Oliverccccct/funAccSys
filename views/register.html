@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= title %></title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="../vendors/font-awesome/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+<body class="register">
+<div class="login_wrapper">
+
+    <div id="register" class="animate form registration_form">
+        <section class="login_content">
+            <form>
+                <h1>Create Account</h1>
+                <div>
+                    <input id="userid" name="userid" type="text" onchange="checkid()" class="form-control" placeholder="UserID" required=""/>
+                    <span id="useridtext" name="useridtext" style="color: red">请输入登录账号!</span>
+                </div>
+                <div>
+                    <input id="password" name="password" type="password" onchange="checkpwd()" class="form-control" placeholder="Password" required="" />
+                    <span id="pwdtext" name="pwdtext" style="color: red">请输入登录密码!</span>
+                </div>
+                <div>
+                    <input id="passwordAgain" name="passwordAgain" type="password" onchange="checkpwdag()" class="form-control" placeholder="PasswordAgain" required="" />
+                    <span id="pwdagtext" name="pwdagtext" style="color: red">请输入重复密码!</span>
+                </div>
+                <div>
+                    <input name="email" type="email" class="form-control" placeholder="Email" required="" />
+                </div>
+                <div>
+                    <input id="birthday" name="birthday" type="text" class="form-control" placeholder="Birthday" required="" />
+                </div>
+                <div>
+                    <input type="submit" value="submit" onclick="return check()" class="btn btn-default submit">Submit</input>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="separator">
+                    <p class="change_link">Already a member ?
+                        <a href="login" class="to_register"> Log in </a>
+                    </p>
+
+                    <div class="clearfix"></div>
+                    <br />
+
+                    <div>
+                        <h1><i class="fa fa-paw"></i>Simple Pay!</h1>
+                        <p>@2017 All Rights Reserved.</p>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+<script language="javascript" type="text/javascript">
+    function checkid()
+    {
+        if (document.getElementById("userid").value==""){
+            document.getElementById("useridtext").innerText="请输入登录账号!";
+            return false;
+        }
+        else {
+            document.getElementById("useridtext").innerText="";
+            return true;
+        }
+    }
+    function checkpwd()
+    {
+        if (document.getElementById("password").value==""){
+            document.getElementById("pwdtext").innerText="请输入登录密码!";
+            return false;
+        }
+        else {
+            document.getElementById("pwdtext").innerText="";
+            return true;
+        }
+    }
+    function checkpwdag()
+    {
+        if (document.getElementById("passwordAgain").value==""){
+            document.getElementById("pwdagtext").innerText="请输入重复密码!";
+            return false;
+        }
+        else if (document.getElementById("password").value!=document.getElementById("passwordAgain").value){
+            document.getElementById("pwdagtext").innerText="";
+            document.getElementById("checkpwd").innerText="对不起!重复密码不等于登录密码";
+            return false;
+        }
+        else return true;
+    }
+    function check()
+    {
+        return checkid()&&checkpwd()&&checkpwdag()
+    }
+</script>
+</body>

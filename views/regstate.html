@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<p>Register <%= state %></p>
+<p><%= err %></p>
+<p>正在跳转至主页...</p>
+<script type="text/javascript">
+    setTimeout(function(){
+        window.location.href = "/";
+    }, 2000);
+</script>
+</body>
+</html>
